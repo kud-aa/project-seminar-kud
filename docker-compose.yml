@@ -1,0 +1,28 @@
+version: '3.7'
+
+services:
+  mariadb:
+    container_name: mariadb1
+    image: mariadb
+    environment:
+      MARIADB_ROOT_PASSWORD: arch
+      MARIADB_DATABASE: template
+      MARIADB_USER: arch
+      MARIADB_PASSWORD: arch
+    ports:
+      - 3307:3306
+    volumes:
+      - ./data:/var/lib/mysql
+
+  php:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    container_name: php1
+    image: php-pdo
+    ports:
+      - 8006:8006
+    volumes:
+      - ./:/usr/src/myapp/
+    working_dir: /usr/src/myapp/template1
+    command: php -S 0.0.0.0:8006

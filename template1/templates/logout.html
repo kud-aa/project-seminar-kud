@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<style>
+
+    body:not(header *){
+     margin: 15px;
+     padding: 15px;
+     line-height: 30px;
+    }
+
+    header {
+      width: 100%;
+      overflow: hidden;
+      background-color: #f1f1f1;
+      padding: 20px 10px;
+    }
+    header a {
+      float: left;
+      color: black;
+      text-align: center;
+      padding: 5px;
+      text-decoration: none;
+      font-size: 18px;
+      line-height: 20px;
+      border-radius: 4px;
+    }
+
+</style>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>listitems</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+
+</head>
+
+<body>
+
+    <header>
+        <a href="listitems.php">List items</a>
+        <a href="additem.php">Add item</a>
+        {% if username %}
+        <a href="logout.php">Logout</a>
+        <a> Hello, {{username|e}} </a>
+        {% else %}
+        <a href="login.php">Login</a>
+        {% endif %}
+    </header>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>logout</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+
+</head>
+
+    <h1>logout</h1>
+
+    <form method="post" autocomplete="on">
+        <fieldset>
+            <legend>Logout:</legend>
+            <input type="submit" value="Logout">
+        </fieldset>
+    </form>
+
+    {% if error %}
+    <h1 style="color:red;">{{error|e}}</h1>
+    {% endif %}
+
+</body>
+
+</html>
